@@ -8,6 +8,10 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import { hittingLabels, hittingLabelsAbr} from "../utils/statsLabels"
 
+// remove Team and Season from dropdown options
+hittingLabels.splice(0, 2)
+hittingLabelsAbr.splice(0,2)
+
 function Chart(props) {
     const {data} = props
     const [selectedStat, setSelectedState] = useState({
@@ -71,7 +75,6 @@ function Chart(props) {
             .call(xAxis)
             .selectAll("text")
                 .text((d) => {
-                    console.log(d)
                     if (uniqYears.includes(d)) {
                         return Math.round(d);
                     }
@@ -80,9 +83,10 @@ function Chart(props) {
     }, [selectedStat.stat])
 
     const handleChange = (event) => {
+       const value = event.target.value
         setSelectedState(oldStat => ({
             ...oldStat,
-            stat: event.target.value,
+            stat: value,
           }));
     }   
 
@@ -109,10 +113,9 @@ function Chart(props) {
                 id: 'age-native-simple',
             }}
             >
-                <option value={0}> {selectedStat.stat.toUpperCase()} </option>
                 {
                     hittingLabels.map((d,i) =>(
-                        <option key = {i} value={d}> {d} </option>
+                        <option key = {i} value={d}> {hittingLabelsAbr[i]} </option>
                     ))
                 }
             </Select> per Season </h3>
