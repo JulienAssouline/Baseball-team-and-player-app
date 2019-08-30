@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/player.css'
 import TableData from "./TableData"
+import { pitchingLabels, pitchingLabelsAbr } from "../utils/statsLabels"
 
 function PitcherStats(props) {
     const {data} = props
@@ -9,14 +10,9 @@ function PitcherStats(props) {
 
     const pitcherData = data[0]
 
-    console.log(pitcherData)
-
-    let basicHeaders = ["season", "team", "wins", "losses", "era", "gamesPlayed", "gamesStarted", "saves", "inningsPitched", "hits", "runs", "earnedRuns", "homeRuns", "baseOnBalls", "strikeOuts", "whip"]
-    let basicHeadersAbr = ["Season", "Team", "W", "L", "ERA", "G", "GS",  "SV", "IP", "H", "R", "ER", "HR", "BB", "SO", "WHIP"]
-
     return (
         <div className = "stats-container">
-            <TableData data = {pitcherData} headers = {basicHeaders} headerAbr = {basicHeadersAbr} title = {title}  /> 
+            <TableData data = {pitcherData} headers = {pitchingLabels} headerAbr = {pitchingLabelsAbr} title = {title}  /> 
         </div>
     );
 }

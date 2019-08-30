@@ -4,7 +4,8 @@ import '../css/player.css'
 import PlayerBio from "./PlayerBio"
 import PlayerStats from "./PlayerStats"
 import PitcherStats from "./PitcherStats"
-import Chart from "./Chart"
+import PlayerChart from "./PlayerChart"
+import PitcherChart from "./PitcherChart"
 import Paper from '@material-ui/core/Paper';
 
 
@@ -38,7 +39,8 @@ function Player(props) {
         <div className = "player-page">
             <Paper className = "header container">
                 <PlayerBio data = {playerData[0]} />
-                <Chart data = {playerData[0]} />
+                {position === "Pitcher" ? <PitcherChart data = {playerData[0].stats} /> : <PlayerChart data = {playerData[0].stats} />
+                }
             </Paper>
             {
                 position === "Pitcher" ? 

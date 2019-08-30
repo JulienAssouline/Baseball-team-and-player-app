@@ -6,14 +6,9 @@ import { axisLeft, axisBottom } from "d3-axis"
 import { select, selectAll } from "d3-selection"
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
-import { hittingLabels, hittingLabelsAbr} from "../utils/statsLabels"
-
-// remove Team and Season from dropdown options
-hittingLabels.splice(0, 2)
-hittingLabelsAbr.splice(0,2)
 
 function Chart(props) {
-    const {data} = props
+    const {data, labels, labelsAbr} = props
     const [selectedStat, setSelectedState] = useState({
         stat: "ops"
     })
@@ -34,8 +29,8 @@ function Chart(props) {
     let width = w - margin.right - margin.left;
     let height = h - margin.top - margin.bottom;
 
-    const hittingStats = data.stats[0].group.displayName === "hitting" ? data.stats[0] : data.stats[1]
-    const fieldingStats = data.stats[0].group.displayName === "fielding" ? data.stats[0] : data.stats[1]
+    // const hittingStats = data.stats[0].group.displayName === "hitting" ? data.stats[0] : data.stats[1]
+    // const fieldingStats = data.stats[0].group.displayName === "fielding" ? data.stats[0] : data.stats[1]
 
     const xScale = scaleLinear()
       .range([0, width])
@@ -43,8 +38,8 @@ function Chart(props) {
     const yScale = scaleLinear()
         .range([height, 0])
 
-    xScale.domain(extent(hittingStats.splits, d => d.season))
-    yScale.domain([0, max(hittingStats.splits, d => Number(d.stat[selectedStat.stat]))])
+    xScale.domain(extent(data.splits, d => d.season))
+    yScale.domain([0, max(data.splits, d => Number(d.stat[selectedStat.stat]))])
     
   const yAxis = axisLeft()
     .scale(yScale)
@@ -56,7 +51,7 @@ function Chart(props) {
 
     useEffect(() => {
 
-        const years = hittingStats.splits.map(d => Number(d.season))
+        const years = data.splits.map(d => Number(d.season))
 
         const uniqYears = [...new Set(years)];
 
@@ -90,7 +85,7 @@ function Chart(props) {
           }));
     }   
 
-   const rects = hittingStats.splits.map((d,i) => (
+   const rects = data.splits.map((d,i) => (
         <rect key = {"rect" + i}
             x = { xScale(d.season) }
             y = { yScale(d.stat[selectedStat.stat]) }
@@ -114,8 +109,8 @@ function Chart(props) {
             }}
             >
                 {
-                    hittingLabels.map((d,i) =>(
-                        <option key = {i} value={d}> {hittingLabelsAbr[i]} </option>
+                    labels.map((d,i) =>(
+                        <option key = {i} value={d}> {labelsAbr[i]} </option>
                     ))
                 }
             </Select> per Season </h3>
