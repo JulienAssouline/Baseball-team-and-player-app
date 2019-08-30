@@ -1,0 +1,19 @@
+.teams-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 20px;
+  }
+  .card-container {
+    padding: 20px;
+    margin: 5px;
+    width: 80%;
+    cursor: pointer;
+  }
+  
+  .team-image {
+    width: 100%;
+    height: 200px;
+  }

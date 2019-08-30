@@ -1,0 +1,13 @@
+.roster-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 20px;
+
+}
+
+.player-image {
+    border-radius: 25px;
+}

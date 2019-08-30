@@ -1,0 +1,111 @@
+.info-box-header {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.bio-container{
+    display: flex;
+    flex-flow: row;
+    margin: 10px;
+}
+
+.chart-container {
+    margin: 10px;
+}
+
+.header.container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.profile-pic {
+    margin: 20px
+}
+
+.player-background  {
+   display: flex;
+   flex-flow: column;
+   align-items: flex-start;
+}
+
+.pip {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.hitting.headers {
+    text-transform: capitalize;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.fielding.headers {
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.pitching.headers {
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.data.table {
+    table-layout: fixed;
+    width: 100%;  
+}
+
+.table-stats-container {
+    margin: 30px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.table-team-image {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.table.rows:hover {
+    background-color: lightgrey
+}
+
+.header.row{
+    background-color: grey;
+    border-radius: 4px;
+}
+
+.y-axis path {
+    fill: none;
+    stroke: none;
+}
+
+.y-axis {
+    font-size: 12px;
+    color: grey
+}
+
+.x-axis {
+    font-size: 12px;
+    color: grey
+}
+
+.y-axis line {
+    fill: none;
+    stroke: none;
+    opacity: 0.7;
+    stroke-dasharray: 3,3;
+}
+
+.x-axis path {
+    fill: none;
+    stroke: none;
+}
+
+.x-axis line {
+    fill: none;
+    stroke: none;
+}
