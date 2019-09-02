@@ -10,8 +10,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 function Chart(props) {
     const {data, labels, labelsAbr} = props
     const [selectedStat, setSelectedState] = useState({
-        stat: "ops"
+        stat: data.group.displayName === "pitching" ? "era" : "ops",
     })
+
+    console.log(data.splits)
 
     const ref = useRef(null)
 
@@ -22,7 +24,7 @@ function Chart(props) {
     let margin = {
         right: 40,
         left: 40,
-        top: 0,
+        top: 10,
         bottom: 40
       }
   
@@ -43,10 +45,12 @@ function Chart(props) {
     
   const yAxis = axisLeft()
     .scale(yScale)
+    .ticks(6)
     .tickSizeOuter(0)
 
  const xAxis = axisBottom()
       .scale(xScale)
+      .ticks(6)
       .tickSizeOuter(0)
 
     useEffect(() => {
@@ -75,7 +79,7 @@ function Chart(props) {
                     }
                 })
 
-    }, [selectedStat.stat])
+    }, [selectedStat.stat, data.splits,xAxis, yAxis, height])
 
     const handleChange = (event) => {
        const value = event.target.value
@@ -91,7 +95,7 @@ function Chart(props) {
             y = { yScale(d.stat[selectedStat.stat]) }
             width = { rectWidth }
             height = { height - yScale(d.stat[selectedStat.stat]) }
-            style = {{fill: "red"}}
+            style = {{fill: "#131953"}}
         />
 
     ))

@@ -1,3 +1,8 @@
+.roster-page {
+    display: flex;
+    flex-flow: column;
+}
+
 .roster-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -11,3 +16,4 @@
 .player-image {
     border-radius: 25px;
 }
+

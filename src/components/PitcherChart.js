@@ -9,12 +9,12 @@ function PlayerChart(props) {
     const pitchingStats = data[0]
     
     // remove Team and Season from dropdown options
-    pitchingLabels.splice(0, 2)
-    pitchingLabelsAbr.splice(0,2)
+    const pitchingLabelsFiltered = pitchingLabels.slice(2, pitchingLabels.length)
+    const pitchingLabelsAbrFiltered = pitchingLabelsAbr.slice(2,pitchingLabelsAbr.length)
 
     return (
         <div className = "stats-container">
-            <Chart data = {pitchingStats} labels = {pitchingLabels} labelsAbr = {pitchingLabelsAbr} /> 
+            <Chart data = {pitchingStats} labels = {pitchingLabelsFiltered} labelsAbr = {pitchingLabelsAbrFiltered} /> 
         </div>
     );
 }

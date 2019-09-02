@@ -8,9 +8,6 @@ import PlayerChart from "./PlayerChart"
 import PitcherChart from "./PitcherChart"
 import Paper from '@material-ui/core/Paper';
 
-
-
-
 function Player(props) {
     const [playerData, setPlayerData] = useState([])
     
@@ -31,7 +28,7 @@ function Player(props) {
 
         fetchData()
 
-    }, [playerID])
+    }, [playerID, position])
 
     if (playerData[0] === undefined) return <div>loading...</div>
 

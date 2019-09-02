@@ -5,8 +5,6 @@ import Roster from "./components/Roster"
 import Player from "./components/Player"
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-
-
 function App() {
   return (
       <div className="App">

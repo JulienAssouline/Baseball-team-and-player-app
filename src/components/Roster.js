@@ -19,7 +19,7 @@ function Roster(props) {
 
         fetchData()
 
-    }, [])
+    }, [props.match.params.id])
 
     return (
         <div className = "roster-page">
@@ -29,7 +29,6 @@ function Roster(props) {
                 rosterData.map((d,i) => (
                     <Paper key = {d.person.id}
                         onClick = {() => {
-                            console.log(d)
                             props.history.push({
                                 pathname: `/player${d.person.id}`,
                                 state: { position: d.position.name }
