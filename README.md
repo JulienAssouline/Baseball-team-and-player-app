@@ -7,4 +7,4 @@ It was made with React, Material-UI, D3, and more.
 
 You can find the app here: http://www.basicbaseballdata.com/
 
-Alternatively, you can git clone the repo, then cd into the root directory, run `yarn` then run `yarn start`. 
+Alternatively, you can `git clone https://github.com/JulienAssouline/Baseball-team-and-player-app.git` the repo, then cd into the root directory, run `yarn` then run `yarn start`. 
