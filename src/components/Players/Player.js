@@ -14,7 +14,6 @@ function Player(props) {
     let playerID = props.match.params.id
     const position = props.location.state.position
 
-
     useEffect(() => {
 
        let URL = position === "Pitcher" ? 

@@ -6,7 +6,7 @@ function PlayerBio(props) {
     return (
         <div className = "bio-container">
             <div className = "profile-pic">
-                <img className = "player-profile-pic" src = {`https://securea.mlb.com/mlb/images/players/head_shot/${data.id}.jpg`} alt="Italian Trulli"/>
+                <img className = "player-profile-pic" src = {`https://securea.mlb.com/mlb/images/players/head_shot/${data.id}.jpg`} alt={data.fullName}/>
             </div>
             <div className = "player-background">
                 <h1>{data.fullName}</h1>

@@ -7,6 +7,8 @@ function PitcherStats(props) {
     
     const title = "Pitcher Stats";
 
+    if(data === undefined) return <div> No Data :(</div>
+
     const pitcherData = data[0]
 
     return (

@@ -5,6 +5,8 @@ import { hittingLabels, hittingLabelsAbr } from "../../../utils/statsLabels"
 function PlayerChart(props) {
     const {data} = props
 
+    if(data === undefined) return <div></div>
+
     const hittingStats = data[0].group.displayName === "hitting" ? data[0] : data[1]
     
     // remove Team and Season from dropdown options

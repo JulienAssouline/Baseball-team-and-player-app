@@ -5,6 +5,8 @@ import { pitchingLabels, pitchingLabelsAbr } from "../../../utils/statsLabels"
 function PlayerChart(props) {
     const {data} = props
 
+    if(data === undefined) return <div></div>
+
     const pitchingStats = data[0]
     
     // remove Team and Season from dropdown options
