@@ -28,7 +28,7 @@ function Teams(props) {
                     }} 
                     key = {d.id} 
                     className = "card-container">
-                        <img className = "team-image" src = {`https://www.mlbstatic.com/team-logos/${d.id}.svg`} alt="Italian Trulli"/>
+                        <img className = "team-image" src = {`https://www.mlbstatic.com/team-logos/${d.id}.svg`} alt={`${d.name}`}/>
                         <h2> {d.name} </h2>
                     </Paper>
                 ))

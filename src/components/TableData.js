@@ -15,7 +15,7 @@ import Paper from '@material-ui/core/Paper';
         <TableCell key={`trc-${k}`}>
             {
                j === "season" ? d[j] : (j === "team" && d.team) ? 
-               <img className = "table-team-image" src = {`https://www.mlbstatic.com/team-logos/${d.team.id}.svg`} alt="Italian Trulli"></img>
+               <img className = "table-team-image" src = {`https://www.mlbstatic.com/team-logos/${d.team.id}.svg`} alt={`${d.team}`}></img>
                : typeof d.stat[j] === "object" ? d.stat.position.abbreviation 
                : d.stat[j]
             }
@@ -53,7 +53,7 @@ function TableData(props) {
                     <TableHead>
                         <TableRow className = "header row">
                             {headers.map((d, i) =>
-                            <TableCell onClick = {((e) => sortTable(d, i))} className = "hitting headers" key={`thc-${i}`}>
+                            <TableCell onClick = {(() => sortTable(d, i))} className = "hitting headers" key={`thc-${i}`}>
                                 {headerAbr[i]}
                             </TableCell>
                             )}

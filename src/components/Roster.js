@@ -35,7 +35,7 @@ function Roster(props) {
                             })
                         }}
                         className = "card-container">
-                        <img className = "player-image" src = {`https://securea.mlb.com/mlb/images/players/head_shot/${d.person.id}.jpg`} alt="Italian Trulli"/>
+                        <img className = "player-image" src = {`https://securea.mlb.com/mlb/images/players/head_shot/${d.person.id}.jpg`} alt={`${d.person.fullName}`}/>
                         <h3> {d.person.fullName} </h3>
                         <p> {d.position.name} </p>
                     </Paper>

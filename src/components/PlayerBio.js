@@ -14,13 +14,13 @@ function PlayerBio(props) {
             <div className = "player-background">
                 <h1>{data.fullName}</h1>
                 <div className = "info-box-header">
-                    <p>{data.primaryPosition.abbreviation}</p>
+                    {data.primaryPosition.abbreviation}
                     <span className = "pip">|</span>
-                    <p>Age: {data.currentAge}</p>
+                    Age: {data.currentAge}
                     <span className = "pip">|</span>
-                    <p>B/T: {data.batSide.code}/{data.pitchHand.code}</p>
+                    B/T: {data.batSide.code}/{data.pitchHand.code}
                     <span className = "pip">|</span>
-                    <p>{data.height} {data.weight}</p>
+                    {data.height} {data.weight}
                 </div>
                 <p> {data.birthCity}, {data.birthStateProvince} {data.birthCountry} </p>
                 <p> Birthdate: {data.birthDate} </p>
