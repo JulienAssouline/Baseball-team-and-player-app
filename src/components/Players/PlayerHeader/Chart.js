@@ -1,5 +1,4 @@
 import React, {useRef, useEffect, useState} from 'react';
-import '../css/player.css'
 import { scaleLinear } from "d3-scale"
 import { extent, max } from "d3-array"
 import { axisLeft, axisBottom } from "d3-axis"
@@ -12,7 +11,6 @@ function Chart(props) {
     const [selectedStat, setSelectedStat] = useState({
         stat: data.group.displayName === "pitching" ? "era" : "ops",
     })
-    const [widthSize, setWidthSize] = useState(window.innerWidth/3)
     
     const ref = useRef(null)
 
@@ -52,8 +50,6 @@ function Chart(props) {
 
     useEffect(() => {
 
-        window.addEventListener("resize", onResize, false)
-
         const years = data.splits.map(d => Number(d.season))
 
         const uniqYears = [...new Set(years)];
@@ -88,10 +84,6 @@ function Chart(props) {
           }));
     }   
 
-    const onResize = () => {
-        setWidthSize(window.innerWidth/3)
-    }
-
    const rects = data.splits.map((d,i) => (
         <rect key = {"rect" + i}
             x = { xScale(d.season) }
@@ -102,8 +94,6 @@ function Chart(props) {
         />
 
     ))
-
-    console.log(window.innerWidth)
 
     return (
         <div className = "chart-container">

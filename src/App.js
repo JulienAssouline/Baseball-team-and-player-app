@@ -1,8 +1,8 @@
 import React from 'react';
 import './css/App.css'
-import Teams from "./components/Teams"
-import Roster from "./components/Roster"
-import Player from "./components/Player"
+import Teams from "./components/Teams/Teams"
+import Roster from "./components/Rosters/Roster"
+import Player from "./components/Players/Player"
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 function App() {

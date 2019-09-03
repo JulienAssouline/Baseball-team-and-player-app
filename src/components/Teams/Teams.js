@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios"
-import '../css/teams.css'
+import '../../css/teams.css'
 import Paper from '@material-ui/core/Paper';
 
 function Teams(props) {

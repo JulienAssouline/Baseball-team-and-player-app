@@ -1,7 +1,6 @@
 import React from 'react';
-import '../css/player.css'
 import Chart from "./Chart"
-import { pitchingLabels, pitchingLabelsAbr } from "../utils/statsLabels"
+import { pitchingLabels, pitchingLabelsAbr } from "../../../utils/statsLabels"
 
 function PlayerChart(props) {
     const {data} = props

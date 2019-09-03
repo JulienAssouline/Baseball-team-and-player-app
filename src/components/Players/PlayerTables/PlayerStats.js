@@ -1,12 +1,11 @@
-import React from 'react';
-import '../css/player.css'
+import React from 'react'
 import TableData from "./TableData"
-import { hittingLabels, hittingLabelsAbr, fieldingLabels, fieldingLabelsAbr} from "../utils/statsLabels"
+import { hittingLabels, hittingLabelsAbr, fieldingLabels, fieldingLabelsAbr} from "../../../utils/statsLabels"
 
 function PlayerStats(props) {
     const {data} = props
 
-    const hittingTitle = "Hitting Stats";
+    const hittingTitle = "Hitting Stats"
     const fieldingTitle = "Fielding Stats"
 
     const hittingStats = data[0].group.displayName === "hitting" ? data[0] : data[1]

@@ -1,7 +1,6 @@
 import React from 'react';
-import '../css/player.css'
 import TableData from "./TableData"
-import { pitchingLabels, pitchingLabelsAbr } from "../utils/statsLabels"
+import { pitchingLabels, pitchingLabelsAbr } from "../../../utils/statsLabels"
 
 function PitcherStats(props) {
     const {data} = props

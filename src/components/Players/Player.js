@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios"
-import '../css/player.css'
-import PlayerBio from "./PlayerBio"
-import PlayerStats from "./PlayerStats"
-import PitcherStats from "./PitcherStats"
-import PlayerChart from "./PlayerChart"
-import PitcherChart from "./PitcherChart"
+import '../../css/player.css'
+import PlayerBio from "./PlayerHeader/PlayerBio"
+import PlayerStats from "./PlayerTables/PlayerStats"
+import PitcherStats from "./PlayerTables/PitcherStats"
+import PlayerChart from "./PlayerHeader/PlayerChart"
+import PitcherChart from "./PlayerHeader/PitcherChart"
 import Paper from '@material-ui/core/Paper';
 
 function Player(props) {

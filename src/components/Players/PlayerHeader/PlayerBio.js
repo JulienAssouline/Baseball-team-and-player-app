@@ -1,7 +1,4 @@
 import React from 'react';
-import '../css/player.css'
-
-
 
 function PlayerBio(props) {
     const {data} = props

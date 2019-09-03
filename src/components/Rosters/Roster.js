@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios"
-import '../css/roster.css'
+import '../../css/roster.css' 
 import Paper from '@material-ui/core/Paper';
 
 function Roster(props) {
