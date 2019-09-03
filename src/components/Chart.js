@@ -9,17 +9,17 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 function Chart(props) {
     const {data, labels, labelsAbr} = props
-    const [selectedStat, setSelectedState] = useState({
+    const [selectedStat, setSelectedStat] = useState({
         stat: data.group.displayName === "pitching" ? "era" : "ops",
     })
-
-    console.log(data.splits)
-
+    const [widthSize, setWidthSize] = useState(window.innerWidth/3)
+    
     const ref = useRef(null)
 
-    const w = 400
+    const w = window.innerWidth >= 500 ? 400 : 200 
     const h = 300
     const rectWidth = 25
+    const ticks = window.innerWidth >= 500 ? 6 : 4 
 
     let margin = {
         right: 40,
@@ -30,9 +30,6 @@ function Chart(props) {
   
     let width = w - margin.right - margin.left;
     let height = h - margin.top - margin.bottom;
-
-    // const hittingStats = data.stats[0].group.displayName === "hitting" ? data.stats[0] : data.stats[1]
-    // const fieldingStats = data.stats[0].group.displayName === "fielding" ? data.stats[0] : data.stats[1]
 
     const xScale = scaleLinear()
       .range([0, width])
@@ -45,15 +42,17 @@ function Chart(props) {
     
   const yAxis = axisLeft()
     .scale(yScale)
-    .ticks(6)
+    .ticks(ticks)
     .tickSizeOuter(0)
 
  const xAxis = axisBottom()
       .scale(xScale)
-      .ticks(6)
+      .ticks(ticks)
       .tickSizeOuter(0)
 
     useEffect(() => {
+
+        window.addEventListener("resize", onResize, false)
 
         const years = data.splits.map(d => Number(d.season))
 
@@ -83,11 +82,15 @@ function Chart(props) {
 
     const handleChange = (event) => {
        const value = event.target.value
-        setSelectedState(oldStat => ({
+        setSelectedStat(oldStat => ({
             ...oldStat,
             stat: value,
           }));
     }   
+
+    const onResize = () => {
+        setWidthSize(window.innerWidth/3)
+    }
 
    const rects = data.splits.map((d,i) => (
         <rect key = {"rect" + i}
@@ -99,6 +102,8 @@ function Chart(props) {
         />
 
     ))
+
+    console.log(window.innerWidth)
 
     return (
         <div className = "chart-container">
