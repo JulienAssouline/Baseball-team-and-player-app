@@ -1,23 +1,31 @@
-import React from 'react';
-import Chart from "./Chart"
-import { hittingLabels, hittingLabelsAbr } from "../../../utils/statsLabels"
+import React from "react";
+import Chart from "./Chart";
+import { hittingLabels, hittingLabelsAbr } from "../../../utils/statsLabels";
 
 function PlayerChart(props) {
-    const {data} = props
+  const { data } = props;
 
-    if(data === undefined) return <div></div>
+  if (data === undefined) return <div></div>;
 
-    const hittingStats = data[0].group.displayName === "hitting" ? data[0] : data[1]
-    
-    // remove Team and Season from dropdown options
-  const hittingLabelsFiltered = hittingLabels.slice(2, hittingLabels.length)
-  const hittingLabelsAbrFiltered = hittingLabelsAbr.slice(2,hittingLabelsAbr.length)
+  const hittingStats =
+    data[0].group.displayName === "hitting" ? data[0] : data[1];
 
-    return (
-        <div className = "stats-container">
-            <Chart data = {hittingStats} labels = {hittingLabelsFiltered} labelsAbr = {hittingLabelsAbrFiltered} /> 
-        </div>
-    );
+  // remove Team and Season from dropdown options
+  const hittingLabelsFiltered = hittingLabels.slice(2, hittingLabels.length);
+  const hittingLabelsAbrFiltered = hittingLabelsAbr.slice(
+    2,
+    hittingLabelsAbr.length
+  );
+
+  return (
+    <div className="stats-container">
+      <Chart
+        data={hittingStats}
+        labels={hittingLabelsFiltered}
+        labelsAbr={hittingLabelsAbrFiltered}
+      />
+    </div>
+  );
 }
 
 export default PlayerChart;
