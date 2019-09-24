@@ -7,7 +7,7 @@ import { act } from "react-dom/test-utils";
 
 afterEach(cleanup);
 
-test("loads and displays teams data", async done => {
+test("loads and displays teams data", async () => {
   axiosMock.get.mockResolvedValueOnce({
     data: [{ id: 1, name: "Oakland Athletics" }]
   });
@@ -22,6 +22,6 @@ test("loads and displays teams data", async done => {
   expect(getByTestId("loading")).toHaveTextContent("loading...");
 
   const resolvedDiv = await waitForElement(() => getAllByTestId("team-name"));
+  expect(resolvedDiv.length).toBe(30);
   expect(resolvedDiv[0].textContent.trim()).toBe("Oakland Athletics");
-  done();
 });
