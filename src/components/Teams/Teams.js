@@ -4,7 +4,7 @@ import "../../css/teams.css";
 import Paper from "@material-ui/core/Paper";
 
 function Teams(props) {
-  const [teamData, setTeamData] = useState([]);
+  const [teamData, setTeamData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +16,8 @@ function Teams(props) {
 
     fetchData();
   }, []);
+
+  if (!teamData) return <div data-testid="loading"> loading... </div>;
 
   return (
     <div className="teams-container">
@@ -35,7 +37,7 @@ function Teams(props) {
             src={`https://www.mlbstatic.com/team-logos/${d.id}.svg`}
             alt={`${d.name}`}
           />
-          <h2> {d.name} </h2>
+          <h2 data-testid="team-name"> {d.name} </h2>
         </Paper>
       ))}
     </div>

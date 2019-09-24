@@ -5,6 +5,8 @@
   "dependencies": {
     "@material-ui/core": "^4.3.3",
     "@material-ui/icons": "^4.2.1",
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.1.4",
     "axios": "^0.19.0",
     "d3-array": "^2.3.1",
     "d3-axis": "^1.0.12",
@@ -14,7 +16,8 @@
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
-    "react-table": "^6.10.0"
+    "react-table": "^6.10.0",
+    "react-testing-library": "^8.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
