@@ -19,7 +19,7 @@ test("loads and displays teams data", async () => {
 
   const { getByTestId, getAllByTestId, queryByTestId } = render(wrapper);
 
-  expect(getByTestId("loading")).toHaveTextContent("loading...");
+  expect(getByTestId("loading").textContent.trim()).toBe("loading...");
 
   expect(queryByTestId("error")).toBeNull();
 
