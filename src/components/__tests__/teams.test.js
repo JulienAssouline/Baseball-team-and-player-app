@@ -17,11 +17,27 @@ test("loads and displays teams data", async () => {
     wrapper = <Teams />;
   });
 
-  const { getByTestId, getAllByTestId } = render(wrapper);
+  const { getByTestId, getAllByTestId, queryByTestId } = render(wrapper);
 
   expect(getByTestId("loading")).toHaveTextContent("loading...");
 
-  const resolvedDiv = await waitForElement(() => getAllByTestId("team-name"));
-  expect(resolvedDiv.length).toBe(30);
-  expect(resolvedDiv[0].textContent.trim()).toBe("Oakland Athletics");
+  expect(queryByTestId("error")).toBeNull();
+
+  const teamName = await waitForElement(() => getAllByTestId("team-name"));
+  expect(teamName.length).toBe(30);
+  expect(teamName[0].textContent.trim()).toBe("Oakland Athletics");
+});
+
+test("renders images", async () => {
+  let wrapper;
+
+  await act(async () => {
+    wrapper = <Teams />;
+  });
+
+  const { getAllByTestId } = render(wrapper);
+
+  const teamImage = await waitForElement(() => getAllByTestId("image-test"));
+  expect(teamImage.length).toBe(30);
+  expect(teamImage[0].tagName.toLowerCase()).toBe("img");
 });
