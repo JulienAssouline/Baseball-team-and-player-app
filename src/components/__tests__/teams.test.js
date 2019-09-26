@@ -4,6 +4,8 @@ import "@testing-library/jest-dom/extend-expect";
 import axiosMock from "../../__mocks__/mock-axios";
 import Teams from "../Teams/Teams";
 import { act } from "react-dom/test-utils";
+import { TeamsProvider, TeamsContext } from "../../context";
+import App from "../../App";
 
 afterEach(cleanup);
 
@@ -11,13 +13,14 @@ test("loads and displays teams data", async () => {
   axiosMock.get.mockResolvedValueOnce({
     data: [{ id: 1, name: "Oakland Athletics" }]
   });
-  let wrapper;
 
-  await act(async () => {
-    wrapper = <Teams />;
-  });
-
-  const { getByTestId, getAllByTestId, queryByTestId } = render(wrapper);
+  const { getByTestId, getAllByTestId, queryByTestId } = render(
+    <App>
+      <TeamsContext.Provider>
+        <Teams />
+      </TeamsContext.Provider>
+    </App>
+  );
 
   expect(getByTestId("loading").textContent.trim()).toBe("loading...");
 
@@ -29,13 +32,13 @@ test("loads and displays teams data", async () => {
 });
 
 test("renders images", async () => {
-  let wrapper;
-
-  await act(async () => {
-    wrapper = <Teams />;
-  });
-
-  const { getAllByTestId } = render(wrapper);
+  const { getAllByTestId } = render(
+    <App>
+      <TeamsContext.Provider>
+        <Teams />
+      </TeamsContext.Provider>
+    </App>
+  );
 
   const teamImage = await waitForElement(() => getAllByTestId("image-test"));
   expect(teamImage.length).toBe(30);

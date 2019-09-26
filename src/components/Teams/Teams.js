@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 import "../../css/teams.css";
 import { Paper } from "@material-ui/core";
 import Errors from "../Errors";
+import { TeamsContext } from "../../context";
 
 function Teams(props) {
-  const [teamData, setTeamData] = useState(null);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios(
-          "https://statsapi.mlb.com/api/v1/teams?sportId=1"
-        );
-        setTeamData(result.data.teams);
-      } catch (error) {
-        setError(true);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const [teamData, error] = useContext(TeamsContext);
 
   if (!teamData) return <div data-testid="loading"> loading... </div>;
 
