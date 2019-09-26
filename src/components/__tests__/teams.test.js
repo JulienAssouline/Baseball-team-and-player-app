@@ -3,8 +3,7 @@ import { render, cleanup, waitForElement } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import axiosMock from "../../__mocks__/mock-axios";
 import Teams from "../Teams/Teams";
-import { act } from "react-dom/test-utils";
-import { TeamsProvider, TeamsContext } from "../../context";
+import { TeamsContext } from "../../context";
 import App from "../../App";
 
 afterEach(cleanup);
