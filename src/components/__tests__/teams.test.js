@@ -43,3 +43,15 @@ test("renders images", async () => {
   expect(teamImage.length).toBe(30);
   expect(teamImage[0].tagName.toLowerCase()).toBe("img");
 });
+
+test("snapshot", () => {
+  const { container } = render(
+    <App>
+      <TeamsContext.Provider>
+        <Teams />
+      </TeamsContext.Provider>
+    </App>
+  );
+
+  expect(container).toMatchSnapshot();
+});
